@@ -31,8 +31,8 @@ write on cmd or terminal docker-compose up --build
 
 ## Mysql
 
-username : root
-password : testPassword
+-   username : root
+-   password : testPassword
 
 ## info for developemnet mode for frontend
 
