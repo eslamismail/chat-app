@@ -25,7 +25,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 write on cmd or terminal docker-compose up --build -d
 
-## Run with logs =
+## Run with logs
 
 write on cmd or terminal docker-compose up --build
 
