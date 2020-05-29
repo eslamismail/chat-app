@@ -23,11 +23,13 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## Run in background
 
-write on cmd or terminal docker-compose up --build -d
+-   rename .env.example to .env
+-   write on cmd or terminal docker-compose up --build -d
 
 ## Run with logs
 
-write on cmd or terminal docker-compose up --build
+-   rename .env.example to .env
+-   write on cmd or terminal docker-compose up --build
 
 ## Mysql
 
@@ -36,12 +38,12 @@ write on cmd or terminal docker-compose up --build
 
 ## developemnet mode for frontend
 
-please write npm run dev
+-   please write npm run dev
 
 ## production mode for frontend
 
-please write npm run build it will compiled it public/\_nuxt folder
+-   please write npm run build it will compiled it /public/\_nuxt folder
 
 ## phpmyadmin
 
-it works on port 8181
+-   it works on port 8181
