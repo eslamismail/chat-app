@@ -42,7 +42,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## production mode for frontend
 
--   please write npm run build it will compiled it /public/\_nuxt folder
+-   please write npm run build it will compiled it /public/\_nuxt
 
 ## phpmyadmin
 
