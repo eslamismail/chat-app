@@ -34,7 +34,7 @@ write on cmd or terminal docker-compose up --build
 -   username : root
 -   password : testPassword
 
-## info for developemnet mode for frontend
+## developemnet mode for frontend
 
 please write npm run dev
 
