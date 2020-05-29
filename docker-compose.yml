@@ -1,0 +1,76 @@
+version: "2"
+services:
+  post-db:
+    image: mysql:5.7.22
+    container_name: post_db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "9090:3306"
+    environment:
+      MYSQL_DATABASE: chat
+      MYSQL_ROOT_PASSWORD: testPassword
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - post-network
+    volumes:
+      - chat:/var/lib/mysql
+
+  post-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: post_app
+    restart: always
+    tty: true
+    environment:
+      - APP_DEBBUG=true
+    ports:
+      - 8000:80
+    volumes:
+      - .:/app
+      - /app/vendor
+      - /app/storage/framework/views
+      - /app/storage/framework/sessions
+      - /app/bootstrap/cache
+      - /app/storage/logs
+    networks:
+      - post-network
+
+  socket-service:
+    build:
+      context: .
+      dockerfile: dockerfile
+    container_name: socket_service
+    ports:
+      - 6001:6001
+    depends_on:
+      - post-app
+    volumes:
+      - .:/var/www
+      - /var/www/vendor
+      - /var/www/storage/framework/views
+      - /var/www/storage/framework/sessions
+      - /var/www/bootstrap/cache
+      - /var/www/storage/logs
+    networks:
+      - post-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: post_phpmyadmin
+    links:
+      - post-db:db
+    ports:
+      - 8181:80
+    environment:
+      MYSQL_ROOT_PASSWORD: testPassword
+    networks:
+      - post-network
+
+volumes:
+  chat:
+networks:
+  post-network:
+    driver: bridge
